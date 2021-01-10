@@ -11,7 +11,7 @@ const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
 
 const app = express();
-app.set('port', process.env.PORT || 2000);
+app.set('port', process.env.PORT || 1000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
