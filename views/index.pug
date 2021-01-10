@@ -1,0 +1,8 @@
+extends layout
+
+block contents
+  
+
+  form(action='/user' method='POST')
+    input#name(name='name_user', placeholder='이름을 입력하세요')
+    button(id='login', type ='submit') 로그인
