@@ -7,6 +7,12 @@ router.get('/', (req, res) => {
   res.render('index', { title: 'Express' });
 });
 
+router.route('/user')
+  .get((req, res) => {
+    res.render('index2', { titles : req.query.name_user});
+  })
+
+
 module.exports = router;
 
 router.route('/abc')
