@@ -1,4 +1,7 @@
 extends layout2
 
 block contents
-  h1 Welcome to #{titles}
+  h1 Hi #{me}
+
+  form(action="/" method='GET')
+    button(type ='submit') 홈
