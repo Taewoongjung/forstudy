@@ -3,14 +3,15 @@ extends layout
 block contents
   
   form(action='/user' method='POST')
+    label ID :  
     input#name(type='text' name='name_user', placeholder='이름을 입력하세요')
     br
-    input#psw(type='text' name='name_psw', placeholder='비밀번호를 입력하세요')
+    label PWD :  
+    input#psw(type='password' name='name_psw', maxlength="8", placeholder='비밀번호를 입력하세요')
     br 
     br 
     span ID 저장
-    input(type='checkbox' value='checked' name='rememberId') 
-
+    input(type='checkbox' value='checked', name='rememberId') 
+    span       
     button(type ='submit') 로그인 
 
-    //https://gaemi606.tistory.com/27

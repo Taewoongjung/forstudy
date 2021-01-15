@@ -4,6 +4,7 @@ const router = express.Router();
 
 // POST /user 라우터
 router.post('/', (req, res) => {
+
     console.log('id : '+ req.body.name_user);
     console.log('psw : '+ req.body.name_psw);
     
@@ -14,11 +15,9 @@ router.post('/', (req, res) => {
   
       console.log(req.cookies);
     }
-    res.render('index2', { namee : req.query.name_user});
+
+    res.render('index2',{me: req.body.name_user});
   });
 
-// router.get('/', (req, res) => {
-//     req.clearCookie('myCookie', {path: '/'});
-// });
 
 module.exports = router;

@@ -8,6 +8,7 @@ const pug = require('pug');
 dotenv.config();
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
+const logoutRouter = require('./routes/logout');
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/logout', logoutRouter);
 
 app.use((req, res, next) => {
   res.status(404).send('Not Found');
