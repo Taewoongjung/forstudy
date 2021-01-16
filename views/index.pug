@@ -2,7 +2,7 @@ extends layout
 
 block contents
   
-  form(action='/user' method='POST')
+  form(action='/user' method='post')
     label ID :  
     input#name(type='text' name='name_user', placeholder='이름을 입력하세요')
     br
@@ -13,6 +13,4 @@ block contents
     span ID 저장
     input(type='checkbox' value='checked', name='rememberId') 
     span       
-    button(type ='submit') 로그인 
-
-    //https://gaemi606.tistory.com/27
+    button(type ='submit', value="login") 로그인 

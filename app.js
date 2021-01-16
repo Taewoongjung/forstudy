@@ -23,6 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(session({
+  key:'sid',
   resave: false,
   saveUninitialized: false,
   secret: process.env.COOKIE_SECRET,
@@ -30,7 +31,7 @@ app.use(session({
     httpOnly: false,
     secure: false,
   },
-  name: 'session-cookie',
+  name:"cookie-session",
 }));
 
 app.use('/', indexRouter);

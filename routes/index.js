@@ -1,5 +1,6 @@
 const express = require('express');
 
+//
 const router = express.Router();
 
 //// GET / 라우터
@@ -42,14 +43,13 @@ router.route('/')
   .post((req, res) => {
     var paramID = req.body.name_user;
     var psw = req.body.name_psw;
-    req,session.user = {
+
+    req.session.user = {
       id: paramID,
       pw: psw,
       name: 'UsersNames!!',
       authorized: true
     };
-    console.log(paramID);
-    console.log(pw);
   });
 
 module.exports = router;
