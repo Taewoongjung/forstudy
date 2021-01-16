@@ -1,13 +1,14 @@
 const express = require('express');
+const { nextTick } = require('process');
 
 const router = express.Router();
 
-router.get('/user', (req, res) => {
+router.get('/', (req, res) => {
     console.log('"logout"의 / 라우트 실행');
-    
-    if (req.cookies.user) {
+
+    if (req.session.user) {
         console.log('로그아웃 처리');
-        req.cookies.destroy(
+        res.session.destroy(
             function (err) {
                 if (err){
                     console.log('세션 삭제시 에러');
@@ -17,10 +18,11 @@ router.get('/user', (req, res) => {
             res.redirect('/');
             }
         );
-    } else{
+    } else {
         console.log('로그인 안되어 있음');
         res.redirtect('/');
     }
 });
 
 module.exports = router;
+
