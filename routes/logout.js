@@ -13,8 +13,9 @@ router.get('/', (req, res) => {
                     console.log('세션 삭제시 에러');
                     return;
                 }
+            res.clearCookie('cookie-session');
             console.log(req.session);
-            res.clearCookie('Cookie');
+            console.log(req.cookies);
             console.log('세션, 쿠키 삭제 성공');
             res.redirect("/");
             }

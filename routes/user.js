@@ -19,7 +19,6 @@ router.post('/',(req, res) => {
     
     if(req.body.rememberId === "checked"){
       console.log("아이디 저장 체크");
-      res.cookie('Cookie', process.env.COOKIE_SECRET);
     }
     
     if(req.cookies){

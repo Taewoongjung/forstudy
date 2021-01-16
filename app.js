@@ -27,7 +27,6 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 //date.setTime(date.getTime() + 10000*1000); //10 sec
 
 app.use(session({
-  key:'sid',
   resave: false,
   saveUninitialized: false,
   secret: process.env.COOKIE_SECRET,
