@@ -1,5 +1,4 @@
 const express = require('express');
-const { nextTick } = require('process');
 
 const router = express.Router();
 
@@ -12,7 +11,6 @@ router.post('/',(req, res) => {
     req.session.user = {
       id: paramID,
       pw: psw,
-      name: 'UsersNames!!',
       authorized: true
     };
 

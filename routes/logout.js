@@ -2,16 +2,6 @@ const express = require('express');
 
 const router = express.Router();
 
-//router.get('/', (req, res) => {
-//    console.log('"logout"의 / 라우트 실행'); 
-//    //console.log(req.session);
-//    req.session.destroy();
-//    res.clearCookie('Cookie');
-//    //console.log(req.cookies);
-//    //console.log(req.session);
-//    res.redirect('/');
-//});
-
 router.get('/', (req, res) => {
     console.log('"logout"의 / 라우트 실행');
     console.log(req.session);
