@@ -20,11 +20,7 @@ router.get('/', (req, res) => {
             res.redirect("/");
             }
         );
-    } else {
-        console.log('로그인 안되어 있음');
-        res.redirect("/");
     }
 });
 
 module.exports = router;
-

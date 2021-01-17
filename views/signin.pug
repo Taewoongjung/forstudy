@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+  body
+
+    h1= title
+    p Welcome to #{title}
+    form(action='/' method='get')
+        label ID :  
+        input#name(type='text' name='user_id', placeholder='이름을 입력하세요')
+        br
+        label PWD :  
+        input#psw(type='password' name='user_psw', maxlength="8", placeholder='비밀번호를 입력하세요')
+        br
+        label PWD :  
+        input#psw(type='password' name='user_psw', maxlength="8", placeholder='비밀번호 재확인')
+        br
+        br
+        button(type ='submit', value="login") 가입
+    

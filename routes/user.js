@@ -3,10 +3,10 @@ const express = require('express');
 const router = express.Router();
 
 // POST /user 라우터
-router.post('/',(req, res) => {
+router.post('/', (req, res) => {
 
-    var paramID = req.body.name_user;
-    var psw = req.body.name_psw;
+    var paramID = req.body.user_id;
+    var psw = req.body.user_psw;
 
     req.session.user = {
       id: paramID,
@@ -21,13 +21,7 @@ router.post('/',(req, res) => {
       console.log("아이디 저장 체크");
     }
     
-    if(req.cookies){
-      console.log(req.cookies);
-      console.log(req.session);
-    }
-
-    res.render('index2', {me: req.body.name_user});
-
+    res.render('index2', {me: paramID});
   });
 
 module.exports = router;

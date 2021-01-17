@@ -8,6 +8,7 @@ const pug = require('pug');
 
 dotenv.config();
 const indexRouter = require('./routes');
+const signRouter = require('./routes/sign');
 const userRouter = require('./routes/user');
 const logoutRouter = require('./routes/logout');
 
@@ -18,7 +19,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(morgan('dev'));
-app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
@@ -38,6 +38,7 @@ app.use(session({
 }));
 
 app.use('/', indexRouter);
+app.use('/sign', signRouter);
 app.use('/user', userRouter);
 app.use('/logout', logoutRouter);
 
