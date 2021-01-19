@@ -7,6 +7,7 @@ const path = require('path');
 const pug = require('pug');
 
 dotenv.config();
+const { sequelize } = require('./models');
 const indexRouter = require('./routes');
 const signRouter = require('./routes/sign');
 const userRouter = require('./routes/user');
