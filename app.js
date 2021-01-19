@@ -19,6 +19,14 @@ app.set('port', process.env.PORT || 1000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+sequelize.sync({ force: false })
+  .then(() => {
+    console.log('데이터베이스 연결 성공');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -44,7 +52,9 @@ app.use('/user', userRouter);
 app.use('/logout', logoutRouter);
 
 app.use((req, res, next) => {
-  res.status(404).send('Not Found');
+  const error =  new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
+  error.status = 404;
+  next(error);
 });
 
 app.use((err, req, res, next) => {
