@@ -8,11 +8,11 @@ module.exports = class User extends Sequelize.Model {
         allowNull: false,
         unique: true,
       },
-      age: {
-        type: Sequelize.INTEGER.UNSIGNED,
+      psw: {
+        type: Sequelize.STRING(20),
         allowNull: false,
       },
-      married: {
+      save: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },

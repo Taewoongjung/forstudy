@@ -32,9 +32,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-//var date = new Date();
-//date.setTime(date.getTime() + 10000*1000); //10 sec
-
 app.use(session({
   resave: false,
   saveUninitialized: false,

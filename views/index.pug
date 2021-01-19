@@ -2,18 +2,17 @@ extends layout
 
 block contents
   
-  form(action='/user', method='post')
-    label ID :  
-    input#name(type='text' name='user_id', placeholder='이름을 입력하세요')
-    br
-    label PWD :  
-    input#psw(type='password' name='user_psw', maxlength="8", placeholder='비밀번호를 입력하세요')
-    br 
-    br
-    span ID 저장
-    input(type='checkbox' value='checked', name='rememberId')
-    span
-    button(type ='submit', value="login") 로그인 
-    br
-  form(action='/sign', method='post')
-    button(type ='submit') 회원가입
+  form#user-form
+    fieldset
+      legend 로그인
+      div
+        input#username(type="text" placeholder="아이디를 입력하세요")
+      div
+        input#userpsw(type="password" placeholder="비밀번호를 입력하세요")
+      div
+        input#issave(type="checkbox")
+        label(for="saveID") ID 저장
+      button(type="submit") 로그인
+
+  script(serc='https://unpkg.com/axios/dist/axios.min.js')
+  script(src='/sequelize.js')
