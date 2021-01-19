@@ -24,4 +24,30 @@ router.post('/', (req, res) => {
     res.render('index2', {me: paramID});
   });
 
+router.route('/')
+  .get(async (req, res, next) => {
+    try {
+      const users = await User.findAll();
+      res.json(users);
+    } catch (err) {
+      console.error(err);
+      next(err);
+    }
+  })
+  .post(async (req, res, next) => {
+    try {
+      const user = await User.create({
+        name: req.body.name,
+        psw: req.body.psw,
+        save: req.body.save,
+      });
+      console.log(user);
+      res.status(201).json(user);
+    } catch (err) {
+      console.error(err);
+      next(err);
+    }
+  });
+
+
 module.exports = router;

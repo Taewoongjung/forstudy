@@ -8,7 +8,7 @@ module.exports = class User extends Sequelize.Model {
         allowNull: false,
         unique: true,
       },
-      psw: {
+      password: {
         type: Sequelize.STRING(20),
         allowNull: false,
       },

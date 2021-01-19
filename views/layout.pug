@@ -3,8 +3,33 @@ html
   head
     title= titles
 
+  style.
+      table {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      table th, table td {
+        border: 1px solid black;
+      }
+
   body
   
     h1= title
     p Welcome to #{title}
     block contents
+    br
+    table#user-list
+      thead
+        tr
+          th 아이디
+          th 이름
+          th 비번
+          th 저장여부
+      tbody
+        for user in users
+          tr
+            td= user.id
+            td= user.name
+            td= user.pasw
+            td= user.save ? '저장' : '비저장'
+      

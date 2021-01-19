@@ -5,6 +5,7 @@ document.querySelectorAll('#user-list tr').forEach((el) => {
     getComment(id);
   });
 });
+
 // 사용자 로딩
 async function getUser() {
   try {
@@ -16,7 +17,7 @@ async function getUser() {
     users.map(function (user) {
       const row = document.createElement('tr');
       row.addEventListener('click', () => {
-        getComment(user.id);
+        //getComment(user.id);
       });
       // 로우 셀 추가
       let td = document.createElement('td');
@@ -26,10 +27,10 @@ async function getUser() {
       td.textContent = user.name;
       row.appendChild(td);
       td = document.createElement('td');
-      td.textContent = user.age;
+      td.textContent = user.password;
       row.appendChild(td);
       td = document.createElement('td');
-      td.textContent = user.married ? '기혼' : '미혼';
+      td.textContent = user.save ? '저장' : '비저장';
       row.appendChild(td);
       tbody.appendChild(row);
     });
@@ -37,6 +38,7 @@ async function getUser() {
     console.error(err);
   }
 }
+
 // 댓글 로딩
 async function getComment(id) {
   try {
@@ -93,6 +95,7 @@ async function getComment(id) {
     console.error(err);
   }
 }
+
 // 사용자 등록 시
 document.getElementById('user-form').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -106,15 +109,16 @@ document.getElementById('user-form').addEventListener('submit', async (e) => {
     return alert('나이를 입력하세요');
   }
   try {
-    await axios.post('/users', { name, age, married });
+    await axios.post('/users', { name, password, save });
     getUser();
   } catch (err) {
     console.error(err);
   }
   e.target.username.value = '';
-  e.target.age.value = '';
-  e.target.married.checked = false;
+  e.target.userpsw.value = '';
+  e.target.issave.checked = false;
 });
+
 // 댓글 등록 시
 document.getElementById('comment-form').addEventListener('submit', async (e) => {
   e.preventDefault();
